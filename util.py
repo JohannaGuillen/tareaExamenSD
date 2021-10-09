@@ -1,7 +1,4 @@
-ruta = 'bitacora.txt'
-
-
-def escribirBitacora(evento):
+def escribirArchivo(ruta,evento):
     archivo = open(ruta, 'a')
     archivo.write(str(evento))
     archivo.close()
