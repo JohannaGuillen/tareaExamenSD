@@ -1,0 +1,150 @@
+<div class="container shadow-sm p-3 mb-5 bg-light rounded">
+    <div class="row">
+        <div class="col-4">
+            <div class="card mb-3">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <form class="row g-3">
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label">Suceso1</label>
+                            <input type="text" class="form-control" id="suceso1" [(ngModel)]="inputsuceso1"
+                                placeholder="Suceso1">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress2" class="form-label">Suceso2</label>
+                            <input type="text" class="form-control" id="suceso1" [(ngModel)]="inputsuceso2"
+                                placeholder="Suceso2">
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary" (click)="analizar()">Analizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <form class="row g-3">
+
+                <div class="card">
+                    <div class="card-header">
+                        Resultado
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"> {{resultado}}</h5>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container shadow-sm p-3 mb-5 bg-light rounded">
+    <div class="row">
+        <div *ngIf="eventsA.length > 0" class="col-3">
+            <li class="list-group-item bg-primary">Sucesos A</li>
+            <ul *ngFor="let event of eventsA" class="list-group">
+                <li class="list-group-item">{{event.suceso}}</li>
+            </ul>
+        </div>
+        <div *ngIf="eventsB.length > 0" class="col-3">
+            <li class="list-group-item bg-primary">Sucesos B</li>
+            <ul *ngFor="let event of eventsB" class="list-group">
+                <li class="list-group-item">{{event.suceso}}</li>
+            </ul>
+        </div>
+        <div *ngIf="eventsC.length > 0" class="col-3">
+            <li class="list-group-item bg-primary">Sucesos C</li>
+            <ul *ngFor="let event of eventsC" class="list-group">
+                <li class="list-group-item">{{event.suceso}}</li>
+            </ul>
+        </div>
+        <div *ngIf="eventsD.length > 0" class="col-3">
+            <li class="list-group-item bg-primary">Sucesos D</li>
+            <ul *ngFor="let event of eventsD" class="list-group">
+                <li class="list-group-item">{{event.suceso}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container shadow-sm p-3 mb-5 bg-light rounded">
+    <div *ngIf="eventsA.length > 0" class="container shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col-2 text-center">
+                <h1>PA</h1>
+            </div>
+            <div class="col-10">
+                <p-timeline [value]="eventsA" layout="horizontal">
+                    <ng-template pTemplate="marker" let-event>
+                        <span class="custom-marker p-shadow-2" [style.backgroundColor]="event.color">
+                            <i [ngClass]="event.icon"></i>
+                        </span>
+                    </ng-template>
+                    <ng-template pTemplate="content" let-event>
+                        <button pButton type="button" label="{{event.nombreSuceso}}"
+                            pTooltip=" {{event.suceso}}"></button>
+                    </ng-template>
+                </p-timeline>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="eventsB.length > 0" class="container shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col-2 text-center">
+                <h1>PB</h1>
+            </div>
+            <div class="col-10">
+                <p-timeline [value]="eventsB" layout="horizontal">
+                    <ng-template pTemplate="marker" let-event>
+                        <span class="custom-marker p-shadow-2" [style.backgroundColor]="event.color">
+                            <i [ngClass]="event.icon"></i>
+                        </span>
+                    </ng-template>
+                    <ng-template pTemplate="content" let-event>
+                        <button pButton type="button" label="{{event.nombreSuceso}}"
+                            pTooltip=" {{event.suceso}}"></button>
+                    </ng-template>
+                </p-timeline>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="eventsC.length > 0" class="container shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col-2 text-center">
+                <h1>PC</h1>
+            </div>
+            <div class="col-10">
+                <p-timeline [value]="eventsC" layout="horizontal">
+                    <ng-template pTemplate="marker" let-event>
+                        <span class="custom-marker p-shadow-2" [style.backgroundColor]="event.color">
+                            <i [ngClass]="event.icon"></i>
+                        </span>
+                    </ng-template>
+                    <ng-template pTemplate="content" let-event>
+                        <button pButton type="button" label="{{event.nombreSuceso}}"
+                            pTooltip=" {{event.suceso}}"></button>
+                    </ng-template>
+                </p-timeline>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="eventsD.length > 0" class="container shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col-2 text-center">
+                <h1>PD</h1>
+            </div>
+            <div class="col-10">
+                <p-timeline [value]="eventsD" layout="horizontal">
+                    <ng-template pTemplate="marker" let-event>
+                        <span class="custom-marker p-shadow-2" [style.backgroundColor]="event.color">
+                            <i [ngClass]="event.icon"></i>
+                        </span>
+                    </ng-template>
+                    <ng-template pTemplate="content" let-event>
+                        <button pButton type="button" label="{{event.nombreSuceso}}"
+                            pTooltip=" {{event.suceso}}"></button>
+                    </ng-template>
+                </p-timeline>
+            </div>
+        </div>
+    </div>
+</div>
